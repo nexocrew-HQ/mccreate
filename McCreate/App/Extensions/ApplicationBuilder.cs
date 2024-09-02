@@ -1,8 +1,9 @@
 ﻿using System.Collections.Immutable;
+using McCreate.App.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace mccreate.App.Extensions;
+namespace McCreate.App.Extensions;
 
 public class ApplicationBuilder
 {
@@ -10,20 +11,23 @@ public class ApplicationBuilder
     
     public ServiceCollection Services;
 
-    public ApplicationBuilder()
+    public ApplicationBuilder(IEntryPoint entryPoint)
     {
-        Create();
+        Create(entryPoint);
     }
     
-    private void Create()
+    private void Create(IEntryPoint entryPoint)
     {
         Services = new ServiceCollection();
+
+        Services.AddSingleton(entryPoint);
+
     }
 
     public Application Build()
     {
         var provider = Services.BuildServiceProvider();
-
+        
         return new Application(provider);
     }
 }

@@ -1,9 +1,12 @@
-﻿namespace mccreate.App.Services;
+﻿namespace McCreate.App.Services;
 
 public class MccreateService
 {
-    public MccreateService()
+
+    private readonly TestService TestService;
+    
+    public MccreateService(TestService testService)
     {
-        Console.WriteLine("test");
+        TestService = testService;
     }
 }

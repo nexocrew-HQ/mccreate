@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using McCreate.App.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace mccreate.App.Extensions;
+namespace McCreate.App.Extensions;
 
 public class Application
 {
@@ -9,6 +10,11 @@ public class Application
     public Application(ServiceProvider services)
     {
         Services = services;
+    }
+
+    public void Start()
+    {
+        Services.GetRequiredService<IEntryPoint>().Run();
     }
     
 }

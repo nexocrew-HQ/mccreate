@@ -1,25 +1,29 @@
-﻿using mccreate.App.Extensions;
-using mccreate.App.Services;
+﻿using McCreate.App;
+using McCreate.App.Extensions;
+using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console;
 
-namespace mccreate;
+namespace McCreate;
 
 class Program
 {
     static void Main(string[] args)
     {
-        ApplicationBuilder applicationBuilder = new();
+        
+        ApplicationBuilder applicationBuilder = new(new EntryPoint());
         
         // Add Services here
         // applicationBuilder.Services.AddSingleton<YourService>();
         
+        applicationBuilder.Services.AddSingleton<TestService>();
         applicationBuilder.Services.AddSingleton<MccreateService>();
 
         // Build the application
         Application application = applicationBuilder.Build();
 
-        var service = application.Services.GetRequiredService<MccreateService>();
+        // Start the application
+        application.Start();
 
     }
 }
