@@ -13,7 +13,7 @@ class Program
         
         // Add Services here
         // applicationBuilder.Services.AddSingleton<YourService>();
-        // just use singletons, because other services wouldn't really make sense in this project
+        // just use singletons, because other service types wouldn't really make sense in this project
 
         // Build the application
         Application<EntryPoint> application = applicationBuilder.Build();
