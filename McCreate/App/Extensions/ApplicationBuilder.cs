@@ -11,21 +11,23 @@ public class ApplicationBuilder
     
     public ServiceCollection Services;
 
+    private IEntryPoint EntryPoint;
+
     public ApplicationBuilder(IEntryPoint entryPoint)
     {
-        Create(entryPoint);
+        EntryPoint = entryPoint;
+        Create();
     }
     
-    private void Create(IEntryPoint entryPoint)
+    private void Create()
     {
         Services = new ServiceCollection();
-
-        Services.AddSingleton(entryPoint);
-
     }
 
     public Application Build()
     {
+        Services.AddSingleton(EntryPoint);
+        
         var provider = Services.BuildServiceProvider();
         
         return new Application(provider);

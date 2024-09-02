@@ -15,9 +15,8 @@ class Program
         
         // Add Services here
         // applicationBuilder.Services.AddSingleton<YourService>();
+        // just use singletons, because other services wouldnt really make sense in this project
         
-        applicationBuilder.Services.AddSingleton<TestService>();
-        applicationBuilder.Services.AddSingleton<MccreateService>();
 
         // Build the application
         Application application = applicationBuilder.Build();
