@@ -1,9 +1,12 @@
-﻿namespace mccreate;
+﻿using Spectre.Console;
+
+namespace mccreate;
 
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+        
     }
 }
