@@ -1,5 +1,6 @@
 ﻿using McCreate.App;
 using McCreate.App.Extensions;
+using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace McCreate;
@@ -14,7 +15,8 @@ class Program
         // Add Services here
         // applicationBuilder.Services.AddSingleton<YourService>();
         // just use singletons, because other service types wouldn't really make sense in this project
-
+        applicationBuilder.Services.AddSingleton<ServerService>();
+        
         // Build the application
         Application<EntryPoint> application = applicationBuilder.Build();
 

@@ -25,6 +25,8 @@ public class ApplicationBuilder<T> where T : class, IEntryPoint
     {
         Services.AddSingleton<T>();
         
+        Services.MakeReadOnly();
+        
         var provider = Services.BuildServiceProvider();
         
         return new Application<T>(provider);
