@@ -3,9 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace McCreate.App.Extensions;
 
-public class Application
+public class Application<T> where T : class, IEntryPoint
 {
     public ServiceProvider Services;
+    
 
     public Application(ServiceProvider services)
     {
@@ -14,7 +15,7 @@ public class Application
 
     public void Start()
     {
-        Services.GetRequiredService<IEntryPoint>().Run();
+        Services.GetRequiredService<T>().Run();
     }
     
 }

@@ -4,8 +4,13 @@ namespace McCreate.App;
 
 public class EntryPoint : IEntryPoint
 {
+    
+    public EntryPoint()
+    {
+    }
+
     public void Run()
     {
-        // Application Logic here
+        Console.Write("test");
     }
 }

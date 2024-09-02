@@ -5,17 +5,14 @@ using Microsoft.Extensions.Hosting;
 
 namespace McCreate.App.Extensions;
 
-public class ApplicationBuilder
+public class ApplicationBuilder<T> where T : class, IEntryPoint
 {
 
     
     public ServiceCollection Services;
 
-    private IEntryPoint EntryPoint;
-
-    public ApplicationBuilder(IEntryPoint entryPoint)
+    public ApplicationBuilder()
     {
-        EntryPoint = entryPoint;
         Create();
     }
     
@@ -24,12 +21,12 @@ public class ApplicationBuilder
         Services = new ServiceCollection();
     }
 
-    public Application Build()
+    public Application<T> Build()
     {
-        Services.AddSingleton(EntryPoint);
+        Services.AddSingleton<T>();
         
         var provider = Services.BuildServiceProvider();
         
-        return new Application(provider);
+        return new Application<T>(provider);
     }
 }
