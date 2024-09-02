@@ -7,19 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/McCreate/App/Services/EntryPointService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/McCreate/App/Services/TestService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/App/Extensions/Application.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Extensions/Application.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/App/Extensions/ApplicationBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Extensions/ApplicationBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/App/Services/MccreateService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Services/MccreateService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mccreate.sln" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate.sln" afterDir="false" />
-    </list>
+    <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,29 +38,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.mccreate.executor": "Run",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.mccreate.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\morit\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\morit\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="mccreate" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/mccreate/bin/Debug/net8.0/mccreate.exe" />
@@ -96,6 +91,7 @@
       <updated>1725262190364</updated>
       <workItem from="1725262193499" duration="5198000" />
       <workItem from="1725267481499" duration="820000" />
+      <workItem from="1725268316700" duration="5600000" />
     </task>
     <servers />
   </component>
