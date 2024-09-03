@@ -29,6 +29,7 @@ class Program
         applicationBuilder.Implementations.RegisterImplementation<IProgramAction>(new CreateServerAction());
         
         applicationBuilder.Implementations.RegisterImplementation<IServerSoftware>(new Paper());
+        applicationBuilder.Implementations.RegisterImplementation<IServerSoftware>(new Purpur());
 
         
         // Build the application

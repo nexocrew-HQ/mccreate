@@ -24,7 +24,7 @@ public class EntryPoint : IEntryPoint
         // TODO:
         // - autodetect version (maybe config file)
         
-        ConsoleHelper.Title("blueviolet bold");
+        AnsiHelper.Title("blueviolet bold");
         
         AnsiConsole.MarkupLine("[grey] Created by [/][bold blue]Moritz[/][grey], brought to you by[/] [bold blue]nexocrew[/]");
         AnsiConsole.MarkupLine("[mediumspringgreen dim]  v1.0.0[/]");
@@ -40,7 +40,7 @@ public class EntryPoint : IEntryPoint
         var selection = new SelectionPrompt<IProgramAction>();
 
         selection
-            .Title(ConsoleHelper.QuestionFormat("What would you like to do?"))
+            .Title(AnsiHelper.QuestionFormat("What would you like to do?"))
             .PageSize(5)
             .MoreChoicesText("[grey](Move up and down to reveal more actions)[/]")
             .AddChoices(actionsList).HighlightStyle(new Style().Foreground(Color.DodgerBlue2))
@@ -48,7 +48,7 @@ public class EntryPoint : IEntryPoint
 
         var action = AnsiConsole.Prompt(selection);
 
-        ConsoleHelper.ConfirmSelection("Selected action", action.Name);
+        AnsiHelper.ConfirmSelection("Selected action", action.Name);
         
         action.Execute(ServiceProvider).GetAwaiter().GetResult();
     }

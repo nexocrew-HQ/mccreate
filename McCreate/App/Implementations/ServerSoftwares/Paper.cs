@@ -110,7 +110,7 @@ public class Paper : IServerSoftware
     {
         Directory.SetCurrentDirectory(path);
         
-        var eula = AnsiConsole.Confirm(ConsoleHelper.QuestionFormat("Do you agree to Minecraft's EULA?"), defaultValue: false);
+        var eula = AnsiConsole.Confirm(AnsiHelper.QuestionFormat("Do you agree to Minecraft's EULA?"), defaultValue: false);
 
         await using var sw = new StreamWriter("eula.txt", false);
         
@@ -120,7 +120,7 @@ public class Paper : IServerSoftware
 
     public async Task<string> GetAdditionalFlags(IServiceProvider serviceProvider)
     {
-        var flags = AnsiConsole.Confirm(ConsoleHelper.QuestionFormat("Do you want to use aikars flags for better performance? (recommended)"), defaultValue: true);
+        var flags = AnsiConsole.Confirm(AnsiHelper.QuestionFormat("Do you want to use aikars flags for better performance? (recommended)"), defaultValue: true);
 
         return flags ? "-XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true" : "";
     }
