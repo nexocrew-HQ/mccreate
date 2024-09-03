@@ -11,12 +11,12 @@ public class ApplicationBuilder<T> where T : class, IEntryPoint
 
     
     public ServiceCollection Services;
-    public PluginService Plugins;
+    public ImplementationService Implementations;
 
     public ApplicationBuilder()
     {
         Create();
-        Plugins = new PluginService();
+        Implementations = new ImplementationService();
     }
     
     private void Create()
@@ -27,7 +27,7 @@ public class ApplicationBuilder<T> where T : class, IEntryPoint
     public Application<T> Build()
     {
         Services.AddSingleton<T>();
-        Services.AddSingleton(Plugins);
+        Services.AddSingleton(Implementations);
         
         Services.MakeReadOnly();
         

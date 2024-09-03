@@ -7,7 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="" />
+    <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/McCreate/App/Implementations/ServerSoftwares/Paper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/App/Interfaces/IServerSoftware.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/App/Models/Paper/PaperApiParser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/App/Models/Version.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/App/Models/VersionGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/McCreate/App/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/EntryPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/McCreate/App/Extensions/ApplicationBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Extensions/ApplicationBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/McCreate/App/Implementations/CreateServerAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Implementations/Actions/CreateServerAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/McCreate/App/Services/PluginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Services/ImplementationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/McCreate/McCreate.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/McCreate.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/McCreate/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,11 +33,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9cc4f8571ebe3e595f45f415169eff92b247ad3eda76721b856fff2d53f1057/SelectionPrompt.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/McCreate/App/Extensions/Application.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/McCreate/App/Extensions/ApplicationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/McCreate/App/Services/EntryPointService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/McCreate/App/Services/MccreateService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/McCreate/App/Services/TestService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/McCreate/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -38,32 +51,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.mccreate.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.mccreate.executor": "Debug",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\morit\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\morit\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="mccreate" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/mccreate/bin/Debug/net8.0/mccreate.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/McCreate/bin/Debug/net8.0/McCreate.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mccreate/" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -92,6 +105,9 @@
       <workItem from="1725262193499" duration="5198000" />
       <workItem from="1725267481499" duration="820000" />
       <workItem from="1725268316700" duration="5600000" />
+      <workItem from="1725288207229" duration="2153000" />
+      <workItem from="1725295276307" duration="1492000" />
+      <workItem from="1725342022384" duration="7614000" />
     </task>
     <servers />
   </component>
@@ -102,5 +118,24 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/McCreate/App/Implementations/ServerSoftwares/Paper.cs</url>
+          <line>80</line>
+          <properties documentPath="C:\Users\morit\Documents\Coding\nexocrew-hq\mccreate\McCreate\App\Implementations\ServerSoftwares\Paper.cs" containingFunctionPresentation="Method 'DownloadVersion'">
+            <startOffsets>
+              <option value="2534" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2577" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,9 +1,8 @@
-﻿using System.Reflection.Metadata;
-using McCreate.App;
+﻿using McCreate.App;
 using McCreate.App.Extensions;
-using McCreate.App.Implementations;
+using mccreate.App.Implementations.Actions;
+using mccreate.App.Implementations.ServerSoftwares;
 using McCreate.App.Interfaces;
-using mccreate.App.Services;
 using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,13 +18,17 @@ class Program
         // Add Services here
         // applicationBuilder.Services.AddSingleton<YourService>();
         // just use singletons, because other service types wouldn't really make sense in this project
+        
         applicationBuilder.Services.AddSingleton<ServerService>();
+        applicationBuilder.Services.AddSingleton<HttpClient>();
         
 
         // Add Plugins here
-        // applicationBuilder.Plugins.RegisterImplementation<IInterface>(new Implementation());
+        // applicationBuilder.Implementations.RegisterImplementation<IInterface>(new Implementation());
         
-        applicationBuilder.Plugins.RegisterImplementation<IProgramAction>(new CreateServerAction());
+        applicationBuilder.Implementations.RegisterImplementation<IProgramAction>(new CreateServerAction());
+        
+        applicationBuilder.Implementations.RegisterImplementation<IServerSoftware>(new Paper());
 
         
         // Build the application

@@ -1,3 +1,4 @@
+using McCreate.App.Helpers;
 using McCreate.App.Interfaces;
 using mccreate.App.Services;
 using McCreate.App.Services;
@@ -8,13 +9,13 @@ namespace McCreate.App;
 public class EntryPoint : IEntryPoint
 {
     private ServerService ServerService;
-    private PluginService PluginService;
+    private ImplementationService ImplementationService;
     private IServiceProvider ServiceProvider;
 
-    public EntryPoint(ServerService serverService, PluginService pluginService, IServiceProvider serviceProvider)
+    public EntryPoint(ServerService serverService, ImplementationService implementationService, IServiceProvider serviceProvider)
     {
         ServerService = serverService;
-        PluginService = pluginService;
+        ImplementationService = implementationService;
         ServiceProvider = serviceProvider;
     }
 
@@ -23,11 +24,13 @@ public class EntryPoint : IEntryPoint
         // TODO:
         // - autodetect version (maybe config file)
         
-        AnsiConsole.MarkupLine("[white dim] Welcome to [/][red bold]mccreate[/] [mediumspringgreen]v1.0.0[/]");
-        AnsiConsole.MarkupLine("[gray dim] Made by [/][bold blue]nexocrew[/]");
+        ConsoleHelper.Title("blueviolet bold");
+        
+        AnsiConsole.MarkupLine("[grey] Created by [/][bold blue]Moritz[/][grey], brought to you by[/] [bold blue]nexocrew[/]");
+        AnsiConsole.MarkupLine("[mediumspringgreen dim]  v1.0.0[/]");
         AnsiConsole.WriteLine();
 
-        var actionsList = PluginService.GetImplementations<IProgramAction>();
+        var actionsList = ImplementationService.GetImplementations<IProgramAction>();
 
         if (actionsList.Length < 1)
             throw new Exception(
@@ -36,7 +39,8 @@ public class EntryPoint : IEntryPoint
         
         var selection = new SelectionPrompt<IProgramAction>();
 
-        selection.Title("[yellow]?[/] [white]What would you like to do?[/]")
+        selection
+            .Title(ConsoleHelper.QuestionFormat("What would you like to do?"))
             .PageSize(5)
             .MoreChoicesText("[grey](Move up and down to reveal more actions)[/]")
             .AddChoices(actionsList).HighlightStyle(new Style().Foreground(Color.DodgerBlue2))
@@ -44,7 +48,8 @@ public class EntryPoint : IEntryPoint
 
         var action = AnsiConsole.Prompt(selection);
 
-        Task.Run(() => action.Execute(ServiceProvider));
-
+        ConsoleHelper.ConfirmSelection("Selected action", action.Name);
+        
+        action.Execute(ServiceProvider).GetAwaiter().GetResult();
     }
 }
