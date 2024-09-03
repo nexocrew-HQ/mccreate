@@ -26,10 +26,10 @@ class Program
         // Add Plugins here
         // applicationBuilder.Implementations.RegisterImplementation<IInterface>(new Implementation());
         
-        applicationBuilder.Implementations.RegisterImplementation<IProgramAction>(new CreateServerAction());
+        applicationBuilder.Implementations.RegisterImplementation<IProgramAction, CreateServerAction>();
         
-        applicationBuilder.Implementations.RegisterImplementation<IServerSoftware>(new Paper());
-        applicationBuilder.Implementations.RegisterImplementation<IServerSoftware>(new Purpur());
+        applicationBuilder.Implementations.RegisterImplementation<IServerSoftware, Paper>();
+        applicationBuilder.Implementations.RegisterImplementation<IServerSoftware, Purpur>();
 
         
         // Build the application
