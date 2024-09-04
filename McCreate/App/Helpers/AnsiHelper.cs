@@ -22,9 +22,12 @@ public class AnsiHelper
         AnsiConsole.MarkupLine($"[{style}]| '_ ` _ \\ / __/ __| '__/ _ \\/ _` | __/ _ \\[/]");
         AnsiConsole.MarkupLine($"[{style}]| | | | | | (_| (__| | |  __/ (_| | ||  __/[/]");
         AnsiConsole.MarkupLine($"[{style}]|_| |_| |_|\\___\\___|_|  \\___|\\__,_|\\__\\___|[/]");
-        
-        
 
+    }
+
+    public static void Success(string message)
+    {
+        AnsiConsole.MarkupLine($"[green]\u2713[/] [white]{message}[/]");
     }
     
 }

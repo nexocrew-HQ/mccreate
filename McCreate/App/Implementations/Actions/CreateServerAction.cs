@@ -1,8 +1,11 @@
+using McCreate.App.Configuration;
+using McCreate.App.Extensions;
 using McCreate.App.Helpers;
 using McCreate.App.Interfaces;
 using McCreate.App.Models;
 using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
+using MoonCore.Services;
 using Spectre.Console;
 using Version = McCreate.App.Models.Version;
 
@@ -28,11 +31,9 @@ public class CreateServerAction : IProgramAction
 
         softwareSelection
             .Title("[yellow]?[/] [white]Which server software would you like to use?[/]")
-            .PageSize(5)
             .MoreChoicesText("[grey](Move up and down to reveal more software types)[/]")
             .AddChoices(serverSoftwareList)
-            .HighlightStyle(Color.DodgerBlue2)
-            .Converter = x => $"[white bold]{x.Name}[/]";
+            .UseDefaultStyles(x => $"[white bold]{x.Name}");
 
         var software = AnsiConsole.Prompt(softwareSelection);
         
@@ -46,26 +47,22 @@ public class CreateServerAction : IProgramAction
 
         versionSelection
             .Title(AnsiHelper.QuestionFormat("Which server version would you like to use?"))
-            .PageSize(8)
+
             .MoreChoicesText("[grey](Move up and down to reveal more versions)[/]")
             .AddChoices(versionGroupList)
-            .HighlightStyle(Color.DodgerBlue2)
-            .Converter = x => $"[white bold]{x.PrimaryVersion}[/]";
+            .UseDefaultStyles(x => $"[white bold]{x.PrimaryVersion}");
 
         var version = AnsiConsole.Prompt(versionSelection);
 
         AnsiHelper.ConfirmSelection("Selected version", version.PrimaryVersion);
         
         var subVersionSelection = new SelectionPrompt<Version>();
-        
+
         subVersionSelection
             .Title(AnsiHelper.QuestionFormat("Which server subversion would you like to use?"))
-            .PageSize(8)
-            .MoreChoicesText("[grey](Move up and down to reveal more versions)[/]")
             .AddChoices(version.SubVersions)
-            .HighlightStyle(new Style().Foreground(Color.DodgerBlue2))
-            .Converter = x => $"[white bold]{x.Name}[/]";
-        
+            .UseDefaultStyles(x => $"[white bold]{x.Name}")
+            .MoreChoicesText("[grey](Move up and down to reveal more versions)[/]");
         
         var subVersion = AnsiConsole.Prompt(subVersionSelection);
         
@@ -80,9 +77,6 @@ public class CreateServerAction : IProgramAction
         );
         
         AnsiHelper.ConfirmSelection("Saving server to", serverPath);
-        
-        
-        
         
         await AnsiConsole.Status()
             .Spinner(Spinner.Known.Line)
