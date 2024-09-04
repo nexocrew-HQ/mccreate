@@ -1,9 +1,8 @@
 ﻿using McCreate.App;
 using McCreate.App.Extensions;
-using mccreate.App.Implementations.Actions;
-using mccreate.App.Implementations.ServerSoftwares;
+using McCreate.App.Implementations.Actions;
+using McCreate.App.Implementations.ServerSoftwares;
 using McCreate.App.Interfaces;
-using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace McCreate;
@@ -19,7 +18,6 @@ class Program
         // applicationBuilder.Services.AddSingleton<YourService>();
         // just use singletons, because other service types wouldn't really make sense in this project
         
-        applicationBuilder.Services.AddSingleton<ServerService>();
         applicationBuilder.Services.AddSingleton<HttpClient>();
         
 

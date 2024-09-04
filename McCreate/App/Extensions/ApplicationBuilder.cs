@@ -1,8 +1,6 @@
-﻿using System.Collections.Immutable;
-using McCreate.App.Interfaces;
-using mccreate.App.Services;
+﻿using McCreate.App.Interfaces;
+using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace McCreate.App.Extensions;
 

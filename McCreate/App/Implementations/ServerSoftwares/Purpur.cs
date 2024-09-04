@@ -1,14 +1,13 @@
 using McCreate.App.Helpers;
 using McCreate.App.Interfaces;
 using McCreate.App.Models;
-using McCreate.App.Models.Paper;
-using mccreate.App.Models.ServerSoftwareModels;
+using McCreate.App.Models.ServerSoftwareModels;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Spectre.Console;
 using Version = McCreate.App.Models.Version;
 
-namespace mccreate.App.Implementations.ServerSoftwares;
+namespace McCreate.App.Implementations.ServerSoftwares;
 
 public class Purpur : IServerSoftware
 {

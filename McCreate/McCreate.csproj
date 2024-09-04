@@ -5,7 +5,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>mccreate</RootNamespace>
+        <RootNamespace>McCreate</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

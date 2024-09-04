@@ -1,4 +1,4 @@
-namespace mccreate.App.Services;
+namespace McCreate.App.Services;
 
 public class ImplementationService
 {

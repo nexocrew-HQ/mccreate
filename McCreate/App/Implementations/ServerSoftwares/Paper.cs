@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 using Spectre.Console;
 using Version = McCreate.App.Models.Version;
 
-namespace mccreate.App.Implementations.ServerSoftwares;
+namespace McCreate.App.Implementations.ServerSoftwares;
 
 public class Paper : IServerSoftware
 {

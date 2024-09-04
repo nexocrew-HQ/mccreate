@@ -1,6 +1,5 @@
 using McCreate.App.Helpers;
 using McCreate.App.Interfaces;
-using mccreate.App.Services;
 using McCreate.App.Services;
 using Spectre.Console;
 
@@ -8,13 +7,11 @@ namespace McCreate.App;
 
 public class EntryPoint : IEntryPoint
 {
-    private ServerService ServerService;
     private ImplementationService ImplementationService;
     private IServiceProvider ServiceProvider;
 
-    public EntryPoint(ServerService serverService, ImplementationService implementationService, IServiceProvider serviceProvider)
+    public EntryPoint(ImplementationService implementationService, IServiceProvider serviceProvider)
     {
-        ServerService = serverService;
         ImplementationService = implementationService;
         ServiceProvider = serviceProvider;
     }

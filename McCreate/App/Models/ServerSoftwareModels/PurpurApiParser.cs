@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace mccreate.App.Models.ServerSoftwareModels;
+namespace McCreate.App.Models.ServerSoftwareModels;
 
 public class PurpurApiParser
 {

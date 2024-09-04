@@ -1,12 +1,12 @@
 using McCreate.App.Helpers;
 using McCreate.App.Interfaces;
 using McCreate.App.Models;
-using mccreate.App.Services;
+using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console;
 using Version = McCreate.App.Models.Version;
 
-namespace mccreate.App.Implementations.Actions;
+namespace McCreate.App.Implementations.Actions;
 
 public class CreateServerAction : IProgramAction
 {
