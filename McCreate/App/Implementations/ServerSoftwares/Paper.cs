@@ -110,7 +110,9 @@ public class Paper : IServerSoftware
     {
         Directory.SetCurrentDirectory(path);
         
-        var eula = AnsiConsole.Confirm(AnsiHelper.QuestionFormat("Do you agree to Minecraft's EULA?"), defaultValue: false);
+        var eula = AnsiConsole.Confirm(
+            AnsiHelper.QuestionFormat("Do you agree to Minecraft's EULA?"), 
+            defaultValue: false);
 
         await using var sw = new StreamWriter("eula.txt", false);
         
