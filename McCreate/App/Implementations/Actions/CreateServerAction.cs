@@ -26,6 +26,8 @@ public class CreateServerAction : IProgramAction
             throw new Exception(
                     "There are no registered Implementations for IServerSoftware, please register one in Program.cs");
         }
+
+        var server = new Server();
         
         var softwareSelection = new SelectionPrompt<IServerSoftware>();
 
@@ -33,42 +35,42 @@ public class CreateServerAction : IProgramAction
             .Title("[yellow]?[/] [white]Which server software would you like to use?[/]")
             .MoreChoicesText("[grey](Move up and down to reveal more software types)[/]")
             .AddChoices(serverSoftwareList)
-            .UseDefaultStyles(x => $"[white bold]{x.Name}");
+            .UseDefaultStyles(x => $"[white bold]{x.Name}[/]");
 
-        var software = AnsiConsole.Prompt(softwareSelection);
+        server.Software = AnsiConsole.Prompt(softwareSelection);
         
-        AnsiHelper.ConfirmSelection("Selected software", software.Name);
+        AnsiHelper.ConfirmSelection("Selected software", server.Software.Name);
         
-        var versionGroupList = await software
+        var versionGroupList = await server.Software
             .GetAvailableVersions(serviceProvider);
-            
         
-        var versionSelection = new SelectionPrompt<VersionGroup>();
+        
+        var versionGroupSelection = new SelectionPrompt<VersionGroup>();
 
-        versionSelection
+        versionGroupSelection
             .Title(AnsiHelper.QuestionFormat("Which server version would you like to use?"))
 
             .MoreChoicesText("[grey](Move up and down to reveal more versions)[/]")
             .AddChoices(versionGroupList)
-            .UseDefaultStyles(x => $"[white bold]{x.PrimaryVersion}");
+            .UseDefaultStyles(x => $"[white bold]{x.PrimaryVersion}[/]");
 
-        var version = AnsiConsole.Prompt(versionSelection);
+        var versionGroup = AnsiConsole.Prompt(versionGroupSelection);
 
-        AnsiHelper.ConfirmSelection("Selected version", version.PrimaryVersion);
+        AnsiHelper.ConfirmSelection("Selected version", versionGroup.PrimaryVersion);
         
         var subVersionSelection = new SelectionPrompt<Version>();
 
         subVersionSelection
             .Title(AnsiHelper.QuestionFormat("Which server subversion would you like to use?"))
-            .AddChoices(version.SubVersions)
-            .UseDefaultStyles(x => $"[white bold]{x.Name}")
+            .AddChoices(versionGroup.SubVersions)
+            .UseDefaultStyles(x => $"[white bold]{x.Name}[/]")
             .MoreChoicesText("[grey](Move up and down to reveal more versions)[/]");
         
-        var subVersion = AnsiConsole.Prompt(subVersionSelection);
+        server.Version = AnsiConsole.Prompt(subVersionSelection);
         
-        AnsiHelper.ConfirmSelection("Selected subversion", subVersion.Name);
+        AnsiHelper.ConfirmSelection("Selected subversion", server.Version.Name);
         
-        var serverPath = Path.GetFullPath(AnsiConsole.Prompt(
+        server.Path = Path.GetFullPath(AnsiConsole.Prompt(
             new TextPrompt<string>(AnsiHelper.QuestionFormat("Where would you like to save your server?"))
                 .DefaultValue(Directory.GetCurrentDirectory())
                 .DefaultValueStyle(Color.DodgerBlue2)
@@ -76,19 +78,19 @@ public class CreateServerAction : IProgramAction
                 .Validate(path => Path.IsPathFullyQualified(Path.GetFullPath(path)) ? ValidationResult.Success() : ValidationResult.Error("[red]This is not a vaild path[/]")))
         );
         
-        AnsiHelper.ConfirmSelection("Saving server to", serverPath);
+        AnsiHelper.ConfirmSelection("Saving server to", server.Path);
         
         await AnsiConsole.Status()
             .Spinner(Spinner.Known.Line)
-            .StartAsync($"Downloading {software.Name} Version {subVersion.Name}...", async ctx => {
-                await software.DownloadVersion(subVersion, serverPath, serviceProvider);
+            .StartAsync($"Downloading {server.Software.Name} Version {server.Version.Name}...", async ctx => {
+                await server.Software.DownloadVersion(server.Version, server.Path, serviceProvider);
             });
         
-        AnsiHelper.ConfirmSelection("Successfully downloaded", software.Name + " " + subVersion.Name);
+        AnsiHelper.Success("Successfully downloaded " + server.Software.Name + " " + server.Version.Name);
 
-        await software.DoFinalSteps(serverPath, serviceProvider);
+        await server.Software.DoFinalSteps(server.Path, serviceProvider);
         
-        var ram = AnsiConsole.Prompt(
+        server.MemoryInMegabytes = AnsiConsole.Prompt(
             new TextPrompt<int>(AnsiHelper.QuestionFormat("How much ram would you like to assign your server (in Megabytes)?"))
                 .ValidationErrorMessage("[red]That's not a valid number[/]")
                 .Validate(x =>
@@ -100,9 +102,13 @@ public class CreateServerAction : IProgramAction
                     };
                 }));
 
-        var additionalFlags = await software.GetAdditionalFlags(serviceProvider);
+        server.AdditionalFlags = await server.Software.GetAdditionalFlags(serviceProvider);
 
-        await StartupCommandHelper.CreateStartupFiles(serverPath, ram, additionalFlags);
+        await ServerHelper.CreateStartupFiles(server.Path, server.MemoryInMegabytes, server.AdditionalFlags);
 
+        await ServerHelper.SaveServerToConfig(serviceProvider, server);
+
+        AnsiHelper.Success("Successfully created your server, have fun!");
+        
     }
 }

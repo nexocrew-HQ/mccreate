@@ -1,6 +1,13 @@
+using McCreate.App.Configuration;
+using McCreate.App.Interfaces;
+using McCreate.App.Models;
+using Microsoft.Extensions.DependencyInjection;
+using MoonCore.Services;
+using Version = McCreate.App.Models.Version;
+
 namespace McCreate.App.Helpers;
 
-public class StartupCommandHelper
+public class ServerHelper
 {
     public static async Task CreateStartupFiles(string path, int ram, string additionalFlags)
     {
@@ -25,5 +32,14 @@ public class StartupCommandHelper
         await linuxMacOsStreamWriter.WriteLineAsync($"#!/usr/bin/env\n{startupCommand}");
         
         linuxMacOsStreamWriter.Close();
+    }
+
+    public static async Task SaveServerToConfig(IServiceProvider serviceProvider, Server server)
+    {
+        var configService = serviceProvider.GetRequiredService<ConfigService<ConfigModel>>();
+
+        configService.Get().Servers.Add(server);
+        
+        configService.Save();
     }
 }
