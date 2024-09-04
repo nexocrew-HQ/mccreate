@@ -6,6 +6,8 @@ namespace McCreate.App.Interfaces;
 public interface IServerSoftware
 {
     string Name { get; set; }
+    
+    string UniqueId { get; set; }
 
     Task<List<VersionGroup>> GetAvailableVersions(IServiceProvider serviceProvider);
 
