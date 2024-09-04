@@ -32,56 +32,7 @@ public class Purpur : IServerSoftware
         
         var versions = JsonConvert.DeserializeObject<PurpurApiParser.VersionApi>(response)!.Versions;
 
-        var versionGroups = new List<VersionGroup>();
-        
-        foreach (var version in versions)
-        {
-            string[] parts = version.Split(".");
-
-            if (parts.Length == 2)
-            {
-                var newGroup = new VersionGroup()
-                {
-                    PrimaryVersion = version
-                };
-                
-                versionGroups.Add(newGroup);
-            }
-            else if (parts.Length == 3)
-            {
-                // Extract the parent version
-                string parentVersion = $"{parts[0]}.{parts[1]}";
-                
-                // Only add if the parent version itself is not in the list
-                if (versionGroups.Any(x => x.PrimaryVersion == parentVersion))
-                    continue;
-                
-                var newGroup = new VersionGroup()
-                {
-                    PrimaryVersion = parentVersion
-                };
-                
-                versionGroups.Add(newGroup);
-            }
-            
-        }
-
-        foreach (var version in versions)
-        {
-            string[] parts = version.Split(".");
-            
-            string parentVersion = $"{parts[0]}.{parts[1]}";
-
-            var group = versionGroups.FirstOrDefault(x => x.PrimaryVersion == parentVersion);
-            
-            if (group == null)
-                continue;
-            
-            group.SubVersions.Add(new Version()
-            {
-                Name = version
-            });
-        }
+        var versionGroups = await VersionHelper.GetVersionGroupListFromListOfVersions(versions);
         
         return versionGroups;
     }
