@@ -12,6 +12,9 @@ namespace McCreate.App.Implementations.ServerSoftwares;
 public class Purpur : IServerSoftware
 {
     public string Name { get; set; } = "Purpur";
+
+    public string UniqueId { get; set; } = "minecraftpurpur";
+
     public async Task<List<VersionGroup>> GetAvailableVersions(IServiceProvider serviceProvider)
     {
         var httpClient = serviceProvider.GetRequiredService<HttpClient>();
