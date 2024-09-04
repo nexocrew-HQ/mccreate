@@ -58,9 +58,7 @@ public class Purpur : IServerSoftware
 
         var allBuildNumbers = new List<int>();
 
-        int latestBuildNumber;
-        
-        latestBuildNumber = int.Parse(buildNumbers.Builds.LatestBuild.Trim());
+        var latestBuildNumber = int.Parse(buildNumbers!.Builds.LatestBuild.Trim());
 
 
         allBuildNumbers.Add(latestBuildNumber);
@@ -95,6 +93,11 @@ public class Purpur : IServerSoftware
             if (!isStable) continue;
             
             stableBuildNumber = buildNumber;
+        }
+
+        if (stableBuildNumber == 0)
+        {
+            throw new Exception($"Could not find any stable build for {version.Name}");
         }
 
         var downloadUrl = $"https://api.purpurmc.org/v2/purpur/{version.Name}/{stableBuildNumber}/download";
