@@ -31,7 +31,7 @@ public class CreateServerAction : IProgramAction
             .PageSize(5)
             .MoreChoicesText("[grey](Move up and down to reveal more software types)[/]")
             .AddChoices(serverSoftwareList)
-            .HighlightStyle(new Style().Foreground(Color.DodgerBlue2))
+            .HighlightStyle(Color.DodgerBlue2)
             .Converter = x => $"[white bold]{x.Name}[/]";
 
         var software = AnsiConsole.Prompt(softwareSelection);
@@ -49,7 +49,7 @@ public class CreateServerAction : IProgramAction
             .PageSize(8)
             .MoreChoicesText("[grey](Move up and down to reveal more versions)[/]")
             .AddChoices(versionGroupList)
-            .HighlightStyle(new Style().Foreground(Color.DodgerBlue2))
+            .HighlightStyle(Color.DodgerBlue2)
             .Converter = x => $"[white bold]{x.PrimaryVersion}[/]";
 
         var version = AnsiConsole.Prompt(versionSelection);
@@ -71,14 +71,22 @@ public class CreateServerAction : IProgramAction
         
         AnsiHelper.ConfirmSelection("Selected subversion", subVersion.Name);
         
-        var serverPath = AnsiConsole.Ask(
-            AnsiHelper.QuestionFormat("Where would you like to save your server?"), 
-            Directory.GetCurrentDirectory()
-            );
+        var serverPath = Path.GetFullPath(AnsiConsole.Prompt(
+            new TextPrompt<string>(AnsiHelper.QuestionFormat("Where would you like to save your server?"))
+                .DefaultValue(Directory.GetCurrentDirectory())
+                .DefaultValueStyle(Color.DodgerBlue2)
+                .ValidationErrorMessage("[red]That's not a valid path[/]")
+                .Validate(path => Path.IsPathFullyQualified(Path.GetFullPath(path)) ? ValidationResult.Success() : ValidationResult.Error("[red]This is not a vaild path[/]")))
+        );
+        
+        AnsiHelper.ConfirmSelection("Saving server to", serverPath);
+        
+        
+        
         
         await AnsiConsole.Status()
             .Spinner(Spinner.Known.Line)
-            .StartAsync($"Downloading {software.Name} Version {subVersion}...", async ctx => {
+            .StartAsync($"Downloading {software.Name} Version {subVersion.Name}...", async ctx => {
                 await software.DownloadVersion(subVersion, serverPath, serviceProvider);
             });
         
@@ -100,25 +108,7 @@ public class CreateServerAction : IProgramAction
 
         var additionalFlags = await software.GetAdditionalFlags(serviceProvider);
 
-        var startupCommand = $"java -Xms{ram}M -Xmx{ram}M {additionalFlags} -jar server.jar nogui";
-
-
-        // ensure the directory exists before we change into it
-        Directory.CreateDirectory(serverPath);
-        
-        // set the current working directory to the servers path
-        Directory.SetCurrentDirectory(serverPath);
-        
-        await using var windowsStreamWriter = new StreamWriter("start.bat", false);
-        
-        await windowsStreamWriter.WriteLineAsync($"@echo off \n{startupCommand} \n" +
-                                                 $"pause");
-        windowsStreamWriter.Close();
-        
-        await using var linuxMacOsStreamWriter = new StreamWriter($"start.sh", false);
-        
-        await linuxMacOsStreamWriter.WriteLineAsync($"#!/usr/bin/env\n{startupCommand}");
-        linuxMacOsStreamWriter.Close();
+        await StartupCommandHelper.CreateStartupFiles(serverPath, ram, additionalFlags);
 
     }
 }
