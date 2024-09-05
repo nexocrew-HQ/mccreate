@@ -34,7 +34,7 @@ public class Purpur : IServerSoftware
         
         var versions = JsonConvert.DeserializeObject<PurpurApiParser.VersionApi>(response)!.Versions;
 
-        var versionGroups = await VersionHelper.GetVersionGroupListFromListOfVersions(versions);
+        var versionGroups = await ServerHelper.GetVersionGroupListFromListOfVersions(versions);
         
         return versionGroups;
     }
