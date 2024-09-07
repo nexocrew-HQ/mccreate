@@ -33,5 +33,7 @@ public class DeleteUpdate : IUpdateAction
         configService.Get().Servers.Remove(itemToDelete);
         
         configService.Save();
+        
+        AnsiHelper.Success("Successfully deleted server");
     }
 }
