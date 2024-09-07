@@ -71,13 +71,17 @@ public class CreateServerAction : IProgramAction
         server.Version = AnsiConsole.Prompt(subVersionSelection);
         
         AnsiHelper.ConfirmSelection("Selected subversion", server.Version.Name);
+
+        var configService = serviceProvider.GetRequiredService<ConfigService<ConfigModel>>();
         
         server.Path = Path.GetFullPath(AnsiConsole.Prompt(
             new TextPrompt<string>(AnsiHelper.QuestionFormat("Where would you like to save your server?"))
                 .DefaultValue(Directory.GetCurrentDirectory())
                 .DefaultValueStyle(Color.DodgerBlue2)
                 .ValidationErrorMessage("[red]That's not a valid path[/]")
-                .Validate(path => Path.IsPathFullyQualified(Path.GetFullPath(path)) ? ValidationResult.Success() : ValidationResult.Error("[red]This is not a vaild path[/]")))
+                .Validate(path => 
+                    
+                    Path.IsPathFullyQualified(Path.GetFullPath(path)) && !configService.Get().Servers.Any(x => x.Path == path) ? ValidationResult.Success() : ValidationResult.Error("[red]This is not a vaild path or a server already exists at this path[/]")))
         );
         
         AnsiHelper.ConfirmSelection("Saving server to", server.Path);
