@@ -31,7 +31,7 @@ mccreate
 
 Now, you can create and update your servers.
 
-### Softwares
+### Softwares 📟
 
 | Software   | Implemented |
 | ---------- | ----------- |
