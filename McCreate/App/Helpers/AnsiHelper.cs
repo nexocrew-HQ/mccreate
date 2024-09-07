@@ -35,4 +35,9 @@ public class AnsiHelper
         AnsiConsole.MarkupLine($"[turquoise2]i[/] [white]{message}[/]");
     }
     
+    public static void Error(string message)
+    {
+        AnsiConsole.MarkupLine($"[red]x[/] [red]{message}[/]");
+    }
+    
 }

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using McCreate.App.Configuration;
 using McCreate.App.Extensions;
 using McCreate.App.Helpers;
@@ -20,6 +21,12 @@ public class UpdateServerAction : IProgramAction
         var configService = serviceProvider.GetRequiredService<ConfigService<ConfigModel>>();
 
         var servers = await ServerHelper.ConvertConfigServersToServers(configService.Get().Servers, serviceProvider);
+
+        if (servers.Count < 1)
+        {
+            AnsiHelper.Error("You currently don't have any servers.");
+            return;
+        }
         
         var serverSelection = new SelectionPrompt<Server>();
 

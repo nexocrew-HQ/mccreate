@@ -33,12 +33,20 @@ public class ListServersAction : IProgramAction
         table.AddColumn(new TableColumn("[green]Version[/]").Centered());
         table.AddColumn(new TableColumn("[blue]Path[/]").Centered());
         table.AddColumn(new TableColumn("[deeppink3]Memory[/]").Centered());
-        
-        foreach (var server in servers)
+
+        if (servers.Count < 1)
         {
-            table.AddRow(server.Software.Name, server.Version.Name, server.Path, server.MemoryInMegabytes + "MB");
+            table.AddRow("[red]You currently don't have any servers.[/]");
+            
         }
-        
+        else
+        {
+            foreach (var server in servers)
+            {
+                table.AddRow(server.Software.Name, server.Version.Name, server.Path, server.MemoryInMegabytes + "MB");
+            }
+        }
+
         AnsiConsole.Write(table);
         
     }
