@@ -8,10 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/McCreate/App/Implementations/Actions/UpdateServerAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/App/Implementations/Actions/CreateServerAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Implementations/Actions/CreateServerAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/App/Implementations/Actions/ListServersAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Implementations/Actions/ListServersAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/App/Implementations/UpdateActions/MoveUpdate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,30 +43,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.mccreate.executor": "Debug",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Publish to folder.Publish McCreate to folder.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.mccreate.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Publish to folder.Publish McCreate to folder.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\morit\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\morit\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\morit\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.mccreate">
     <configuration name="Publish McCreate to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$" target_framework="net8.0" uuid_high="5969389194612261689" uuid_low="-7592139246032257516" />
@@ -114,7 +112,9 @@
       <workItem from="1725523749847" duration="642000" />
       <workItem from="1725533423564" duration="24000" />
       <workItem from="1725554883222" duration="2919000" />
-      <workItem from="1725703288074" duration="4725000" />
+      <workItem from="1725703288074" duration="13450000" />
+      <workItem from="1725720976963" duration="359000" />
+      <workItem from="1725725239553" duration="1098000" />
     </task>
     <servers />
   </component>
@@ -125,24 +125,5 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/McCreate/App/Implementations/Actions/UpdateServerAction.cs</url>
-          <line>29</line>
-          <properties documentPath="C:\Users\morit\Documents\Coding\nexocrew-hq\mccreate\McCreate\App\Implementations\Actions\UpdateServerAction.cs" containingFunctionPresentation="Method 'Execute'">
-            <startOffsets>
-              <option value="1202" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1251" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

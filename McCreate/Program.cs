@@ -47,6 +47,7 @@ class Program
         applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, VersionUpdate>();
         applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, DeleteUpdate>();
         applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, RestoreStartupFiles>();
+        applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, MoveUpdate>();
 
         
         // Build the application
