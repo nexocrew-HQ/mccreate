@@ -63,7 +63,7 @@ Please follow the [contributing guidelines](CONTRIBUTING.md) when making changes
   _Developement of the whole cli._
 
 - **[xyzJesper](https://github.com/xyzJesper)**
-  _Publishment and Management_
+  _Design, Publishment and Management_
 
 ## License 📄
 
