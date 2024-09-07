@@ -1,10 +1,11 @@
 using McCreate.App.Interfaces;
+using Newtonsoft.Json;
 
 namespace McCreate.App.Models;
 
-public class Server
+public class ConfigServer
 {
-    public IServerSoftware Software { get; set; }
+    public string SoftwareId { get; set; }
     
     public Version Version { get; set; }
     

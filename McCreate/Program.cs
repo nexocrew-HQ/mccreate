@@ -35,6 +35,7 @@ class Program
         // applicationBuilder.Implementations.RegisterImplementation<IInterface>(new Implementation());
         
         applicationBuilder.Implementations.RegisterImplementation<IProgramAction, CreateServerAction>();
+        applicationBuilder.Implementations.RegisterImplementation<IProgramAction, ListServersAction>();
         
         applicationBuilder.Implementations.RegisterImplementation<IServerSoftware, Paper>();
         applicationBuilder.Implementations.RegisterImplementation<IServerSoftware, Purpur>();

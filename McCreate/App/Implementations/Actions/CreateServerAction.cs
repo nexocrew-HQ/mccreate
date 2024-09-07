@@ -15,6 +15,8 @@ public class CreateServerAction : IProgramAction
 {
     public string Name { get; set; } = "Create new Server";
 
+    public string Description { get; set; } = "Create a new server with parameters such as: software, version, ...";
+
     public async Task Execute(IServiceProvider serviceProvider)
     {
         var implementationService = serviceProvider.GetRequiredService<ImplementationService>();

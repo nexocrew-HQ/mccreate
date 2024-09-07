@@ -1,8 +1,10 @@
 using McCreate.App.Configuration;
 using McCreate.App.Interfaces;
 using McCreate.App.Models;
+using McCreate.App.Services;
 using Microsoft.Extensions.DependencyInjection;
 using MoonCore.Services;
+using Spectre.Console;
 using Version = McCreate.App.Models.Version;
 
 namespace McCreate.App.Helpers;
@@ -34,11 +36,62 @@ public class ServerHelper
         linuxMacOsStreamWriter.Close();
     }
 
+    public static async Task<List<Server>> ConvertConfigServersToServers(IEnumerable<ConfigServer> configServers, IServiceProvider serviceProvider)
+    {
+        var implementationService = serviceProvider.GetRequiredService<ImplementationService>();
+
+        var servers = new List<Server>();
+        
+        var softwareImplementations = implementationService.GetImplementations<IServerSoftware>().ToList();
+        
+        foreach (var configServer in configServers)
+        {
+            var serverSoftware = softwareImplementations.FirstOrDefault(x => x.UniqueId == configServer.SoftwareId);
+
+            if (serverSoftware == null)
+            {
+                AnsiConsole.MarkupLine($"[red bold]Could not get the software of server \"{configServer.Path}\"[/]");
+                continue;
+            }
+
+            var newServer = new Server()
+            {
+                Software = serverSoftware,
+                Version = configServer.Version,
+                AdditionalFlags = configServer.AdditionalFlags,
+                MemoryInMegabytes = configServer.MemoryInMegabytes,
+                Path = configServer.Path
+            };
+            
+            newServer.Software = serverSoftware;
+
+            servers.Add(newServer);
+        }
+
+        return servers;
+    }
+
+    public static async Task<ConfigServer> ConvertServerToConfigServer(Server server)
+    {
+        var configServer = new ConfigServer()
+        {
+            SoftwareId = server.Software.UniqueId,
+            AdditionalFlags = server.AdditionalFlags,
+            MemoryInMegabytes = server.MemoryInMegabytes,
+            Path = server.Path,
+            Version = server.Version
+        };
+
+        return configServer;
+    }
+
     public static async Task SaveServerToConfig(IServiceProvider serviceProvider, Server server)
     {
         var configService = serviceProvider.GetRequiredService<ConfigService<ConfigModel>>();
 
-        configService.Get().Servers.Add(server);
+        var configServer = await ConvertServerToConfigServer(server);
+        
+        configService.Get().Servers.Add(configServer);
         
         configService.Save();
     }
