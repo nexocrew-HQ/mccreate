@@ -57,6 +57,14 @@ CContributions are welcome! If you want to help improve **McCreate**, feel free 
 
 Please follow the [contributing guidelines](CONTRIBUTING.md) when making changes.
 
+## Authors
+
+- **[Moritz-Deiaco](https://github.com/Moritz-Deiaco)**
+  _Developement of the whole cli._
+
+- **[xyzJesper](https://github.com/xyzJesper)**
+  _Publishment and Management_
+
 ## License 📄
 
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
