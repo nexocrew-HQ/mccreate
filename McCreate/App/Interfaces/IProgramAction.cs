@@ -2,10 +2,10 @@ namespace McCreate.App.Interfaces;
 
 public interface IProgramAction
 {
-    string Name { get; set; }
+    public string Name { get; set; }
     
-    string Description { get; set; }
+    public string Description { get; set; }
 
-    Task Execute(IServiceProvider serviceProvider);
+    public Task Execute(IServiceProvider serviceProvider);
 
 }
