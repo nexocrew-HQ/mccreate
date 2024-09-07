@@ -15,7 +15,7 @@ public class CreateServerAction : IProgramAction
 {
     public string Name { get; set; } = "Create new Server";
 
-    public string Description { get; set; } = "Create a new server with parameters such as: software, version, ...";
+    public string Description { get; set; } = "Create a new server with parameters such as: software, version, memory";
 
     public async Task Execute(IServiceProvider serviceProvider)
     {
@@ -34,7 +34,7 @@ public class CreateServerAction : IProgramAction
         var softwareSelection = new SelectionPrompt<IServerSoftware>();
 
         softwareSelection
-            .Title("[yellow]?[/] [white]Which server software would you like to use?[/]")
+            .Title(AnsiHelper.QuestionFormat("Which server software would you like to use?"))
             .MoreChoicesText("[grey](Move up and down to reveal more software types)[/]")
             .AddChoices(serverSoftwareList)
             .UseDefaultStyles(x => $"[white bold]{x.Name}[/]");

@@ -47,6 +47,8 @@ public class EntryPoint : IEntryPoint
 
         AnsiHelper.ConfirmSelection("Selected action", action.Name);
         
+        AnsiHelper.ConfirmSelection("Description", action.Description);
+        
         action.Execute(ServiceProvider).GetAwaiter().GetResult();
     }
 }

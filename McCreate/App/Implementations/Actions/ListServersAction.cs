@@ -13,7 +13,7 @@ public class ListServersAction : IProgramAction
 {
     public string Name { get; set; } = "List Created Servers";
 
-    public string Description { get; set; } = "";
+    public string Description { get; set; } = "List your servers you created with mccreate";
 
     public async Task Execute(IServiceProvider serviceProvider)
     {
@@ -38,7 +38,6 @@ public class ListServersAction : IProgramAction
         {
             table.AddRow(server.Software.Name, server.Version.Name, server.Path, server.MemoryInMegabytes + "MB");
         }
-
         
         AnsiConsole.Write(table);
         
