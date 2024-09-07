@@ -32,7 +32,7 @@ class Program
             new ConfigService<ConfigModel>(configPath));
         
         // Add Plugins here
-        // applicationBuilder.Implementations.RegisterImplementation<IInterface>(new Implementation());
+        // applicationBuilder.Implementations.RegisterImplementation<IInterface, Implementation>();
         
         applicationBuilder.Implementations.RegisterImplementation<IProgramAction, CreateServerAction>();
         applicationBuilder.Implementations.RegisterImplementation<IProgramAction, ListServersAction>();

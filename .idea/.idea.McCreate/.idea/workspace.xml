@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/McCreate/App/Implementations/UpdateActions/MoveUpdate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +111,7 @@
       <workItem from="1725554883222" duration="2919000" />
       <workItem from="1725703288074" duration="13450000" />
       <workItem from="1725720976963" duration="359000" />
-      <workItem from="1725725239553" duration="1098000" />
+      <workItem from="1725725239553" duration="1628000" />
     </task>
     <servers />
   </component>
