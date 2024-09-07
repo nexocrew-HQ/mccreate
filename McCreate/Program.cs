@@ -4,9 +4,9 @@ using McCreate.App.Extensions;
 using McCreate.App.Helpers;
 using McCreate.App.Implementations.Actions;
 using McCreate.App.Implementations.ServerSoftwares;
+using McCreate.App.Implementations.UpdateActions;
 using McCreate.App.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using MoonCore.Services;
 
 namespace McCreate;
@@ -36,9 +36,17 @@ class Program
         
         applicationBuilder.Implementations.RegisterImplementation<IProgramAction, CreateServerAction>();
         applicationBuilder.Implementations.RegisterImplementation<IProgramAction, ListServersAction>();
+        applicationBuilder.Implementations.RegisterImplementation<IProgramAction, UpdateServerAction>();
         
         applicationBuilder.Implementations.RegisterImplementation<IServerSoftware, Paper>();
         applicationBuilder.Implementations.RegisterImplementation<IServerSoftware, Purpur>();
+        
+        applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, SoftwareUpdate>();
+        applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, MemoryUpdate>();
+        applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, FlagsUpdate>();
+        applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, VersionUpdate>();
+        applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, DeleteUpdate>();
+        applicationBuilder.Implementations.RegisterImplementation<IUpdateAction, RestoreStartupFiles>();
 
         
         // Build the application

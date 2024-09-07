@@ -11,11 +11,11 @@ namespace McCreate.App.Helpers;
 
 public class ServerHelper
 {
-    public static async Task CreateStartupFiles(string path, int ram, string additionalFlags)
+    public static async Task CreateStartupFiles(Server server)
     {
-        var startupCommand = $"java -Xms{ram}M -Xmx{ram}M {additionalFlags} -jar server.jar nogui";
+        var startupCommand = $"java -Xms{server.MemoryInMegabytes}M -Xmx{server.MemoryInMegabytes}M {server.AdditionalFlags} -jar server.jar nogui";
 
-        var serverPath = Path.GetFullPath(path);
+        var serverPath = Path.GetFullPath(server.Path);
         
         // ensure the directory exists before we change into it
         Directory.CreateDirectory(serverPath);
@@ -149,6 +149,25 @@ public class ServerHelper
         }
 
         return versionGroups;
+    }
+
+    public static async Task UpdateServer(Server server, string originalServerPath, IServiceProvider serviceProvider)
+    {
+        var configService = serviceProvider.GetRequiredService<ConfigService<ConfigModel>>();
+
+        var newConfigServer = await ConvertServerToConfigServer(server);
+
+        if (configService.Get().Servers.FirstOrDefault(x => x.Path == originalServerPath) == null)
+            return;
+
+        var servers = configService.Get().Servers;
+
+        var index = servers.FindIndex(x => x.Path == originalServerPath);
+
+        servers[index] = newConfigServer;
+
+        configService.Get().Servers = servers;
+        configService.Save();
     }
     
 }

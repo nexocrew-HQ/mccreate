@@ -110,7 +110,7 @@ public class CreateServerAction : IProgramAction
 
         server.AdditionalFlags = await server.Software.GetAdditionalFlags(serviceProvider);
 
-        await ServerHelper.CreateStartupFiles(server.Path, server.MemoryInMegabytes, server.AdditionalFlags);
+        await ServerHelper.CreateStartupFiles(server);
 
         await ServerHelper.SaveServerToConfig(serviceProvider, server);
 

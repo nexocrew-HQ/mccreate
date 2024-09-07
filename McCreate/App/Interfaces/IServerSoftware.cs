@@ -8,6 +8,8 @@ public interface IServerSoftware
     public string Name { get; set; }
     
     public string UniqueId { get; set; }
+    
+    public bool HasAdditionalFlags { get; set; }
 
     public Task<List<VersionGroup>> GetAvailableVersions(IServiceProvider serviceProvider);
 

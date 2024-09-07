@@ -29,5 +29,10 @@ public class AnsiHelper
     {
         AnsiConsole.MarkupLine($"[green]\u2713[/] [white]{message}[/]");
     }
+
+    public static void Info(string message)
+    {
+        AnsiConsole.MarkupLine($"[turquoise2]i[/] [white]{message}[/]");
+    }
     
 }

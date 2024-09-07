@@ -16,6 +16,8 @@ public class Paper : IServerSoftware
 
     public string UniqueId { get; set; } = "minecraftpaper";
 
+    public bool HasAdditionalFlags { get; set; } = true;
+
     public async Task<List<VersionGroup>> GetAvailableVersions(IServiceProvider serviceProvider)
     {
         var httpClient = serviceProvider.GetRequiredService<HttpClient>();

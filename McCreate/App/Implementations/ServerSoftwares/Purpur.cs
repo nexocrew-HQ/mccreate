@@ -15,6 +15,8 @@ public class Purpur : IServerSoftware
 
     public string UniqueId { get; set; } = "minecraftpurpur";
 
+    public bool HasAdditionalFlags { get; set; } = false;
+
     public async Task<List<VersionGroup>> GetAvailableVersions(IServiceProvider serviceProvider)
     {
         var httpClient = serviceProvider.GetRequiredService<HttpClient>();
