@@ -2,7 +2,7 @@
 
 _Copyright © nexocrew.com_
 
-## Overview
+## Overview 🌍
 
 **McCreate** is a command-line tool designed to easily create and configure a Minecraft server. With simple commands, users can generate, manage, and customize their own Minecraft servers in just a few steps. Whether you're setting up a server for friends or for a larger community, McCreate simplifies the entire process, allowing you to focus on what matters most — playing the game.
 
