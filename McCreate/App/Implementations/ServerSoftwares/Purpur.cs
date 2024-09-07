@@ -95,6 +95,7 @@ public class Purpur : IServerSoftware
             if (!isStable) continue;
             
             stableBuildNumber = buildNumber;
+            break;
         }
 
         if (stableBuildNumber == 0)
