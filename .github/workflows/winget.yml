@@ -1,0 +1,26 @@
+name: goreleaser
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  msi:
+    runs-on: windows-latest
+    steps:
+      - name: Bump Winget manifest
+        shell: pwsh
+        env:
+          WINGETCREATE_VERSION: v0.2.0.29-preview
+          GITHUB_TOKEN: ${{ secrets.UPLOAD_GITHUB_TOKEN }}
+        run: |
+          $tagname = $env:GITHUB_REF.Replace("refs/tags/", "")
+          $version = $tagname.Replace("v", "")
+          $url = "https://installer.system.nexocrew.space/win/mccreate.msi"
+          iwr https://github.com/microsoft/winget-create/releases/download/${env:WINGETCREATE_VERSION}/wingetcreate.exe -OutFile wingetcreate.exe
+
+          .\wingetcreate.exe update GitHub.cli --url $url --version $version
+          if ($version -notmatch "-") {
+            .\wingetcreate.exe submit .\manifests\g\GitHub\cli\${version}\ --token $env:GITHUB_TOKEN
+          }
