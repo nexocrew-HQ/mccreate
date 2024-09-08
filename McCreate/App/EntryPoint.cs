@@ -26,6 +26,8 @@ public class EntryPoint : IEntryPoint
         AnsiConsole.MarkupLine("[grey] Created by [/][bold blue]Moritz[/][grey], brought to you by[/] [bold blue]nexocrew[/]");
         AnsiConsole.MarkupLine("[mediumspringgreen dim]  v1.0.0[/]");
         AnsiConsole.WriteLine();
+        AnsiConsole.MarkupLine("[dim white]You need help with mccreate? Then Navigate to https://nexocrew.link/s/mccreatedocs[/]");
+        AnsiConsole.WriteLine();
 
         var actionsList = ImplementationService.GetImplementations<IProgramAction>();
 

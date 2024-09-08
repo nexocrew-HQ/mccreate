@@ -11,7 +11,7 @@ public class AnsiHelper
 
     public static string QuestionFormat(string question)
     {
-        return $"[yellow]?[/] [white]{question}[/]";
+        return Emoji.Replace($":red_question_mark: [white]{question}[/]");
     }
 
     public static void Title(string style)
@@ -22,7 +22,6 @@ public class AnsiHelper
         AnsiConsole.MarkupLine($"[{style}]| '_ ` _ \\ / __/ __| '__/ _ \\/ _` | __/ _ \\[/]");
         AnsiConsole.MarkupLine($"[{style}]| | | | | | (_| (__| | |  __/ (_| | ||  __/[/]");
         AnsiConsole.MarkupLine($"[{style}]|_| |_| |_|\\___\\___|_|  \\___|\\__,_|\\__\\___|[/]");
-
     }
 
     public static void Success(string message)
@@ -34,10 +33,9 @@ public class AnsiHelper
     {
         AnsiConsole.MarkupLine($"[turquoise2]i[/] [white]{message}[/]");
     }
-    
+
     public static void Error(string message)
     {
         AnsiConsole.MarkupLine($"[red]x[/] [red]{message}[/]");
     }
-    
 }
