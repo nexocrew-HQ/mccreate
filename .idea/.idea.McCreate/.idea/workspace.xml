@@ -8,11 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/App/EntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/EntryPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/McCreate/App/Helpers/AnsiHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/App/Helpers/AnsiHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/m/McCreate/McCreate/0.1.0/McCreate.McCreate.installer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/m/McCreate/McCreate/0.1.0/McCreate.McCreate.locale.en-US.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/m/McCreate/McCreate/0.1.0/McCreate.McCreate.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/n/nexocrew/mccreate/0.1.0/nexocrew.mccreate.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +127,7 @@
       <workItem from="1725720976963" duration="359000" />
       <workItem from="1725725239553" duration="1628000" />
       <workItem from="1725745023519" duration="3555000" />
-      <workItem from="1725787106326" duration="1465000" />
+      <workItem from="1725787106326" duration="2903000" />
     </task>
     <servers />
   </component>
