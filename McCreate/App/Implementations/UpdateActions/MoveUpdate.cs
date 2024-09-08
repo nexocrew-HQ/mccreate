@@ -26,12 +26,6 @@ public class MoveUpdate : IUpdateAction
                         ? ValidationResult.Success() 
                         : ValidationResult.Error("[red]This is not a vaild path or a server already exists at this path[/]")))
         );
-
-        if (!Directory.Exists(server.Path))
-        {
-            AnsiHelper.Error("The servers directory does not exist.");
-            return;
-        }
         
         try
         {
@@ -39,8 +33,17 @@ public class MoveUpdate : IUpdateAction
         }
         catch (Exception e)
         {
-            AnsiHelper.Error(e.Message);
-            return;
+            switch (e)
+            {
+                case IOException:
+                    AnsiHelper.Error("The server could not be moved because: the target directory is already existing, is on a different volume or the source path is equal to the target path.");
+                    return;
+                default:
+                    AnsiHelper.Error($"An unknown error occured while moving your server: {e.Message}");
+                    if (e.StackTrace != null)
+                        AnsiHelper.Error(e.StackTrace);
+                    return;
+            }
         }
 
         var oldPath = server.Path;
