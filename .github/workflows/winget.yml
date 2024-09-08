@@ -1,6 +1,7 @@
-name: goreleaser
+name: mccreate
 
 on:
+  workflow_dispatch:
   push:
     branches: 
       - main
