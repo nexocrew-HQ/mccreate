@@ -14,9 +14,8 @@ _Copyright © nexocrew.com_
 
 ## Installation 📥
 
-```bash
-# Placeholder for installation instructions
-```
+- [Windows](https://github.com/nexocrew-HQ/mccreate/wiki/Install-on-Windows)
+- [Linux](https://github.com/nexocrew-HQ/mccreate/wiki/Install-on-linux)
 
 ## Usage 🚀
 
