@@ -8,10 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bdc248c-939b-466e-856b-f720113f1110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/m/McCreate/McCreate/0.1.0/McCreate.McCreate.installer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/m/McCreate/McCreate/0.1.0/McCreate.McCreate.locale.en-US.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/m/McCreate/McCreate/0.1.0/McCreate.McCreate.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/McCreate/MSIInstaller/manifests/n/nexocrew/mccreate/0.1.0/nexocrew.mccreate.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/info.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/ReadMe.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/_TODO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/mccreate.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/tools/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/tools/VERIFICATION.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/tools/chocolateybeforemodify.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/tools/chocolateyinstall.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/McCreate/Choco/mccreate/tools/chocolateyuninstall.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.McCreate/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/McCreate/McCreate.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/McCreate/McCreate.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,28 +51,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.mccreate.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Publish to folder.Publish McCreate to Linux.executor&quot;: &quot;Run&quot;,
-    &quot;Publish to folder.Publish McCreate to MacOS.executor&quot;: &quot;Run&quot;,
-    &quot;Publish to folder.Publish McCreate to Win.executor&quot;: &quot;Run&quot;,
-    &quot;Publish to folder.Publish McCreate to folder.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.mccreate.executor": "Run",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Publish to folder.Publish McCreate to Linux arm64.executor": "Run",
+    "Publish to folder.Publish McCreate to Linux.executor": "Run",
+    "Publish to folder.Publish McCreate to MacOS.executor": "Run",
+    "Publish to folder.Publish McCreate to Win.executor": "Run",
+    "Publish to folder.Publish McCreate to folder.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Publish to folder.Publish McCreate to Win">
-    <configuration name="Publish McCreate to Linux" type="DotNetFolderPublish" factoryName="Publish to folder">
+}]]></component>
+  <component name="RunManager" selected="Publish to folder.Publish McCreate to Linux arm64">
+    <configuration name="Publish McCreate to Linux arm64" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="linux-arm64" self_contained="true" target_folder="$PROJECT_DIR$/McCreate/bin/Release/net8.0/linux-arm64/publish" target_framework="net8.0" uuid_high="5969389194612261689" uuid_low="-7592139246032257516" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish McCreate to Linux x64" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="linux-x64" self_contained="true" target_folder="$PROJECT_DIR$/mccreate/storage" target_framework="net8.0" uuid_high="5969389194612261689" uuid_low="-7592139246032257516" />
       <method v="2" />
     </configuration>
@@ -97,8 +109,9 @@
     </configuration>
     <list>
       <item itemvalue=".NET Project.mccreate" />
+      <item itemvalue="Publish to folder.Publish McCreate to Linux arm64" />
       <item itemvalue="Publish to folder.Publish McCreate to MacOS" />
-      <item itemvalue="Publish to folder.Publish McCreate to Linux" />
+      <item itemvalue="Publish to folder.Publish McCreate to Linux x64" />
       <item itemvalue="Publish to folder.Publish McCreate to Win" />
     </list>
   </component>
@@ -127,7 +140,9 @@
       <workItem from="1725720976963" duration="359000" />
       <workItem from="1725725239553" duration="1628000" />
       <workItem from="1725745023519" duration="3555000" />
-      <workItem from="1725787106326" duration="2903000" />
+      <workItem from="1725787106326" duration="4211000" />
+      <workItem from="1725807061234" duration="3154000" />
+      <workItem from="1725887856725" duration="3457000" />
     </task>
     <servers />
   </component>
