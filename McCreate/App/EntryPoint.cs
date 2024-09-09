@@ -29,6 +29,12 @@ public class EntryPoint : IEntryPoint
         AnsiConsole.MarkupLine("[dim white]You need help with mccreate? Then Navigate to https://nexocrew.link/s/mccreatedocs[/]");
         AnsiConsole.WriteLine();
 
+        if (!AnsiConsole.Profile.Capabilities.Interactive)
+        {
+            AnsiConsole.MarkupLine("[red]Environment does not support interaction.[/]");
+            return;
+        }
+        
         var actionsList = ImplementationService.GetImplementations<IProgramAction>();
 
         if (actionsList.Length < 1)
