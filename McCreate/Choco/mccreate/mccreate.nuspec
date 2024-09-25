@@ -56,9 +56,9 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
-    <dependencies>
+    <!-- <dependencies>
       <dependency id="chocolatey-core.extension" version="1.1.0" />
-    </dependencies>
+    </dependencies> -->
     <!-- chocolatey-core.extension - https://community.chocolatey.org/packages/chocolatey-core.extension -->
 
     <!--<provides>NOT YET IMPLEMENTED</provides>-->
